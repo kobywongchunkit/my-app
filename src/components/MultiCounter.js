@@ -18,9 +18,13 @@ function MultiCounter(){
     function decrease(){
         setSum(sum-1);
     }
+
+    function resetSum(){
+        setSum(0);
+    }
     return(
         <>
-        <CounterSizeGenerator updateSize={updateCounterSize}></CounterSizeGenerator>
+        <CounterSizeGenerator updateSize={updateCounterSize} resetSum={resetSum}></CounterSizeGenerator>
         <CounterGroupSum sum={sum}></CounterGroupSum>
         <CounterGroup 
         size={size} 
