@@ -1,12 +1,9 @@
 import './App.css';
-import Counter from './components/Counter.js'
-
+import MultiCounter from './components/MultiCounter';
 function App() {
   return (
     <div className="App">
-      <Counter></Counter>
-      <Counter></Counter>
-      <Counter></Counter>
+      <MultiCounter></MultiCounter>
     </div>
   );
 }
