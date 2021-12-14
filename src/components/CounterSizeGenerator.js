@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import{ UPDATE_SIZE, RESET_SUM }  from '../constants/constants';
 
-function CounterSizeGenerator(props){
+function CounterSizeGenerator(){
     const dispatch = useDispatch();
     
     function handleChangeSize(event){
