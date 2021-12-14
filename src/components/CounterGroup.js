@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import Counter from "./Counter";
 
-function CounterGroup(props){
+function CounterGroup(){
     const [counterList, setCounterList] = useState([]);
+    const size = useSelector(state => state.size);
 
     useEffect(() =>{
-        const counterList = new Array(props.size).fill(Date.now());
+        const counterList = new Array(size).fill(Date.now());
         setCounterList(counterList);
-    },[props.size]);
-
-    function increase(){
-        props.increase();
-    }
-
-    function decrease(){
-        props.decrease();
-    }
+    },[size]);
 
     return(
         <>
@@ -23,8 +17,6 @@ function CounterGroup(props){
             counterList.map((item, index) =>
                 <Counter 
                 key={item + index} 
-                increase={increase} 
-                decrease={decrease}
                 ></Counter>
             )
         }

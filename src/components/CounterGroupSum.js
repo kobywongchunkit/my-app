@@ -1,7 +1,9 @@
-function CounterGroupSum(props) {
+import { useSelector } from 'react-redux';
+function CounterGroupSum() {
+    const sum = useSelector(state => state.sum);
     return(
         <>
-            Sum: {props.sum}
+            Sum: {sum}
         </>
     );
 }

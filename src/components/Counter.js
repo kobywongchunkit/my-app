@@ -1,22 +1,21 @@
-import{ useState } from 'react';
-function Counter(props) {
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { UPDATE_SUM } from '../constants/constants'
+
+function Counter() {
     const [number,setNumber] = useState(0);
+    const dispatch = useDispatch();
 
-    function increase(){
-        setNumber(number+1);
-        props.increase();
-    }
-
-    function decrease(){
-        setNumber(number-1);
-        props.decrease();
+    function updateCounter(value){
+        setNumber(number + value)
+        dispatch({type: UPDATE_SUM, payload: value});
     }
 
     return(
         <div>
-            <button onClick={increase}>+</button>
+            <button onClick={()=>updateCounter(1)}>+</button>
             <span>{number}</span>
-            <button onClick={decrease}>-</button>
+            <button onClick={()=>updateCounter(-1)}>-</button>
         </div>
     );  
 }
